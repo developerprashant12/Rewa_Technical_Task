@@ -1,0 +1,46 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "ToDo List Application",
+      "description": "Develop a To-Do List application using React where users can add, delete, and mark tasks as completed. Implement features such as filtering tasks based on their status (completed/uncompleted) and maintaining task persistence using local storage",
+      "dueDate": "2024-04-30",
+      "status": "Completed"
+    },
+    {
+      "id": 2,
+      "title": "Weather Forecast App",
+      "description": "Create a weather forecast application using React that fetches weather data from a public API (e.g., OpenWeatherMap). Display current weather information along with a 5-day forecast. Provide users with the option to search for weather forecasts by city name.",
+      "dueDate": "2024-04-27",
+      "status": "Pending"
+    },
+    {
+      "id": 3,
+      "title": "E-Commerce Website",
+      "description": "Build an e-commerce website using React where users can browse products, add them to their cart, and proceed to checkout. Implement features such as product filtering by category, sorting by price, and a responsive design for various devices.",
+      "dueDate": "2024-04-27",
+      "status": "Completed"
+    },
+    {
+      "id": 4,
+      "title": "User Authentication System",
+      "description": "Develop a user authentication system using React and Firebase Authentication. Allow users to sign up, log in, and log out of the application. Implement protected routes to restrict access to certain pages for authenticated users only.",
+      "dueDate": "2024-04-27",
+      "status": "Pending"
+    },
+    {
+      "id": 5,
+      "title": "Movie Database Search",
+      "description": "Create a movie database search application using React that fetches movie data from an API (e.g., IMDb API or The Movie Database API). Enable users to search for movies by title, view details such as cast and plot summary, and save favorite movies to a watchlist.",
+      "dueDate": "2024-05-01",
+      "status": "Completed"
+    },
+    {
+      "id": 6,
+      "title": "Stable Diffusion API",
+      "description": "Stable Diffusion API work on -   Create a image with the help of stable diffusion API\n",
+      "dueDate": "2024-04-18",
+      "status": "Completed"
+    }
+  ]
+}

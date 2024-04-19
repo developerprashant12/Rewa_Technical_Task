@@ -1,0 +1,12 @@
+.form-label {
+     float: left !important;
+ }
+
+.changeButton{
+     background-color: #41e0fd !important;
+     border-color: #41e0fd !important;
+}
+
+.changeText{
+     color: #41e0fd !important;
+}

@@ -1,0 +1,19 @@
+.bgData{
+     background-color: #41e0fd !important;
+}
+
+.dataColor{
+     background-color: #41e0fd !important;
+     border-color: blue !important;
+     color: black !important;
+}
+
+.dataColor:hover{
+     background-color: white !important;
+}
+
+.data{
+     background-color: #41e0fd !important;
+     border-color: #41e0fd !important;
+     color: black !important;
+}
