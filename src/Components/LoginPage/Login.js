@@ -50,13 +50,17 @@ function Login(props) {
           localStorage.setItem("userData", JSON.stringify(user));
         navigate("/tasklist");
       } else {
-        setError("Invalid email or password. Please try again.");
+        setError("Invalid User email or password. Please Register The User");
       }
     } catch (error) {
       console.error("Error fetching user data:", error.message);
       setError("Error fetching user data. Please try again later.");
     }
   };
+
+  const handleRegisterMove = () =>{
+    navigate("/register")
+  }
 
   return (
     <div
@@ -78,7 +82,7 @@ function Login(props) {
                 borderRadius: "10px",
               }}
             >
-              <h2 className="text-center mb-5 changeText">
+              <h2 className="text-center  changeText">
                 SIGN IN <hr />
               </h2>
               {error && <div className="text-danger mb-3">{error}</div>}
@@ -112,6 +116,7 @@ function Login(props) {
                   Login
                 </Button>
               </Form>
+              <div><h6 className="text-center changeText1 border mt-5 p-2">If you are not Registered User ? <span className="border changeButton color p-1 cursor-pointer" onClick={handleRegisterMove}>Register</span></h6></div>
             </div>
           </Col>
         </Row>

@@ -1,15 +1,18 @@
 {
-     "users": [
-       {
-         "id": 1,
-         "password": "pass@123",
-         "email": "pm@gmail.com"
-       },
-       {
-         "id": 2,
-         "password": "pass@12",
-         "email": "rm@gmail.com"
-       }
-     ]
-   }
-   
+  "users": [
+    {
+      "firstName": "Prashant",
+      "lastName": "Mishra",
+      "email": "mishra@gmail.com",
+      "password": "1234",
+      "id": 1
+    },
+    {
+      "firstName": "Rahul",
+      "lastName": "Mishra",
+      "email": "rahul@gmail.com",
+      "password": "12345",
+      "id": 2
+    }
+  ]
+}

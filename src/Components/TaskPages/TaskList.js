@@ -24,6 +24,15 @@ function TaskList(props) {
     status: "",
   });
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [tasksPerPage] = useState(2);
+
+  // Logic to get current tasks based on pagination
+  const indexOfLastTask = currentPage * tasksPerPage;
+  const indexOfFirstTask = indexOfLastTask - tasksPerPage;
+  const currentTasks = tasks.slice(indexOfFirstTask, indexOfLastTask);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -178,6 +187,8 @@ function TaskList(props) {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+      {/* Pagination Section */}
       <Container className="mt-5">
         <h3>
           Task List
@@ -187,9 +198,8 @@ function TaskList(props) {
           <p>No tasks available</p>
         ) : (
           <div className="table-responsive">
-            <Table striped bordered hover className="mt-5">
+            <Table striped bordered hover className="mt-4">
               <colgroup>
-                <col style={{ width: "6%" }} /> {/* ID */}
                 <col style={{ width: "10%" }} /> {/* Task ID */}
                 <col style={{ width: "15%" }} /> {/* Title */}
                 <col style={{ width: "30%" }} /> {/* Description */}
@@ -200,7 +210,6 @@ function TaskList(props) {
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Task ID</th>
                   <th>Title</th>
                   <th>Description</th>
                   <th>Due Date</th>
@@ -209,9 +218,8 @@ function TaskList(props) {
                 </tr>
               </thead>
               <tbody>
-                {tasks.map((task, index) => (
+                {currentTasks.map((task, index) => (
                   <tr key={task.id}>
-                    <td>{index + 1}</td>
                     <td>{task.id}</td>
                     <td>{task.title}</td>
                     <td style={{ textAlign: "justify" }}>{task.description}</td>
@@ -245,17 +253,39 @@ function TaskList(props) {
                 ))}
               </tbody>
             </Table>
+            <div className="d-flex justify-content-center">
+              {currentPage === 1 ? null : (
+                <Button
+                  Toolbar
+                  className="mt-3 mb-5 data float-left align"
+                  onClick={() => paginate(currentPage - 1)}
+                >
+                  PreviousPage
+                </Button>
+              )}
+              &nbsp;
+              {tasks.length - currentPage * tasksPerPage <= 0 ? null : (
+                <Button
+                  Toolbar
+                  className="mt-3 mb-5 data float-right align1"
+                  onClick={() => paginate(currentPage + 1)}
+                >
+                  NextPage
+                </Button>
+              )}
+            </div>
           </div>
         )}
 
         <Button
           variant="primary"
-          className="mt-4 data mb-4"
+          className="mt-3 data mb-4"
           onClick={handleLogout}
         >
-          <b>Log Out</b>
+          <b>Log Out User</b>
         </Button>
       </Container>
+      {/* Pagination Section */}
       {/* Add Task Modal */}
       <Modal show={showAddModal} onHide={() => setShowAddModal(false)} centered>
         <Modal.Header closeButton>

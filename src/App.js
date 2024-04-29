@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import Login from "./Components/LoginPage/Login";
 import TaskList from "./Components/TaskPages/TaskList";
+import SignUp from "./Components/LoginPage/SignUp";
 
 function App() {
   const [isAuthenticate, setIsAuthenticate] = useState(false);
@@ -28,6 +29,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="/register" element={<SignUp/>} />
           <Route
             path="/"
             element={

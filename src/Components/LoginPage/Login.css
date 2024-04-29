@@ -10,3 +10,14 @@
 .changeText{
      color: #41e0fd !important;
 }
+
+.changeText1{
+     color: #41e0fd !important;
+
+}
+
+.color{
+     color: white !important;
+     border-radius: 10px;
+     cursor: pointer;
+}
