@@ -13,7 +13,7 @@ function Login(props) {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3001/users", {
+      const response = await fetch("https://rewainfotech.netlify.app/users", {
         headers: {
           "Cache-Control": "no-cache",
           Pragma: "no-cache",

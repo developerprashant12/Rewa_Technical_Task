@@ -13,6 +13,13 @@
       "email": "rahul@gmail.com",
       "password": "12345",
       "id": 2
+    },
+    {
+      "firstName": "Rewa",
+      "lastName": "Infotech",
+      "email": "rewa@gmail.com",
+      "password": "1234",
+      "id": 3
     }
   ]
 }

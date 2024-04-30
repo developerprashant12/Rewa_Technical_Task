@@ -37,7 +37,7 @@ function TaskList(props) {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch("http://localhost:3002/tasks");
+        const response = await fetch("https://rewainfotech.netlify.app/tasks");
         if (!response.ok) {
           throw new Error("Failed to fetch task data");
         }
@@ -81,7 +81,7 @@ function TaskList(props) {
   const confirmDelete = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3002/tasks/${selectedTask}`,
+        `https://rewainfotech.netlify.app/${selectedTask}`,
         {
           method: "DELETE",
         }
@@ -119,7 +119,7 @@ function TaskList(props) {
   const handleSubmit = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3002/tasks/${selectedTask.id}`,
+        `https://rewainfotech.netlify.app/${selectedTask.id}`,
         {
           method: "PUT",
           headers: {
@@ -149,7 +149,7 @@ function TaskList(props) {
 
   const handleAddSubmit = async () => {
     try {
-      const response = await fetch("http://localhost:3002/tasks", {
+      const response = await fetch("https://rewainfotech.netlify.app/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -41,6 +41,13 @@
       "description": "Stable Diffusion API work on -   Create a image with the help of stable diffusion API\n",
       "dueDate": "2024-04-18",
       "status": "Completed"
+    },
+    {
+      "id": 7,
+      "title": "Rewa ChatGPT",
+      "description": "Rewa is a MNC Company",
+      "dueDate": "2002-02-28",
+      "status": "Completed"
     }
   ]
 }
