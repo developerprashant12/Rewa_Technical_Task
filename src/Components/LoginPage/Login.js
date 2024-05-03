@@ -48,7 +48,7 @@ function Login(props) {
       if (user) {
           props.onLogin();
           localStorage.setItem("userData", JSON.stringify(user));
-        navigate("/tasklist");
+           navigate(`/tasklist?id=${user.id}`);
       } else {
         setError("Invalid User email or password. Please Register The User");
       }

@@ -27,6 +27,41 @@
       "email": "tn@gmail.com",
       "password": "1234",
       "id": 4
+    },
+    {
+      "firstName": "Rewa",
+      "lastName": "Infotech",
+      "email": "rewainfo@gmail.com",
+      "password": "123456",
+      "id": 5
+    },
+    {
+      "firstName": "pp",
+      "lastName": "pp",
+      "email": "v@gmail.com",
+      "password": "1234",
+      "id": 6
+    },
+    {
+      "firstName": "t",
+      "lastName": "t",
+      "email": "h@gmail.com",
+      "password": "1234",
+      "id": 7
+    },
+    {
+      "firstName": "First",
+      "lastName": "User",
+      "email": "first@gmail.com",
+      "password": "1234",
+      "id": 8
+    },
+    {
+      "firstName": "Second ",
+      "lastName": "User",
+      "email": "second@gmail.com",
+      "password": "1234",
+      "id": 9
     }
   ]
 }

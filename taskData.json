@@ -2,11 +2,12 @@
   "tasks": [
     {
       "id": 1,
-      "title": "ToDo List Applications",
+      "title": "ToDo List App",
       "description": "Develop a To-Do List application using React where users can add, delete, and mark tasks as completed. Implement features such as filtering tasks based on their status (completed/uncompleted) and maintaining task persistence using local storage",
       "dueDate": "2024-04-30",
       "status": "Completed",
-      "startDate": "2024-02-03"
+      "startDate": "2024-02-03",
+      "userId": 5
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "description": "Create a weather forecast application using React that fetches weather data from a public API (e.g., OpenWeatherMap). Display current weather information along with a 5-day forecast. Provide users with the option to search for weather forecasts by city name.",
       "dueDate": "2024-04-27",
       "status": "Pending",
-      "startDate": "2023-11-17"
+      "startDate": "2023-11-17",
+      "userId": 5
     },
     {
       "id": 3,
@@ -22,7 +24,8 @@
       "description": "Build an e-commerce website using React where users can browse products, add them to their cart, and proceed to checkout. Implement features such as product filtering by category, sorting by price, and a responsive design for various devices.",
       "dueDate": "2024-04-27",
       "status": "Completed",
-      "startDate": "2024-02-16"
+      "startDate": "2024-02-16",
+      "userId": 5
     },
     {
       "id": 4,
@@ -30,15 +33,8 @@
       "description": "Develop a user authentication system using React and Firebase Authentication. Allow users to sign up, log in, and log out of the application. Implement protected routes to restrict access to certain pages for authenticated users only.",
       "dueDate": "2024-04-27",
       "status": "Pending",
-      "startDate": "2024-01-26"
-    },
-    {
-      "id": 5,
-      "title": "Movie Database Search",
-      "description": "Create a movie database search application using React that fetches movie data from an API (e.g., IMDb API or The Movie Database API). Enable users to search for movies by title, view details such as cast and plot summary, and save favorite movies to a watchlist.",
-      "dueDate": "2024-05-01",
-      "status": "Completed",
-      "startDate": "2023-11-24"
+      "startDate": "2024-01-26",
+      "userId": 5
     },
     {
       "id": 6,
@@ -46,7 +42,53 @@
       "description": "Stable Diffusion API work on -   Create a image with the help of stable diffusion API\n",
       "dueDate": "2024-04-18",
       "status": "Completed",
-      "startDate": "2023-12-06"
+      "startDate": "2023-12-06",
+      "userId": 5
+    },
+    {
+      "id": 8,
+      "title": "RewaInfotech App",
+      "description": "RewaInfotech is a company. it  is the best culture and evironment in this company.",
+      "startDate": "2024-01-11",
+      "dueDate": "2024-05-23",
+      "status": "Completed",
+      "userId": 5
+    },
+    {
+      "id": 9,
+      "title": "data",
+      "description": "data",
+      "startDate": "2024-05-09",
+      "dueDate": "2024-05-16",
+      "status": "Completed",
+      "userId": 5
+    },
+    {
+      "id": 10,
+      "title": "data",
+      "description": "data is moved",
+      "startDate": "2024-05-01",
+      "dueDate": "2024-05-15",
+      "status": "Completed",
+      "userId": 6
+    },
+    {
+      "id": 11,
+      "title": "Rewa Infotech Apps",
+      "description": "Rewa is a best Company in India. It is the best Cultural and environment in this Company",
+      "startDate": "2024-02-15",
+      "dueDate": "2024-05-24",
+      "status": "Completed",
+      "userId": 8
+    },
+    {
+      "id": 12,
+      "title": "Prashant Marketing App",
+      "description": "Marketing Website is best way to improve yourself ",
+      "startDate": "2024-05-02",
+      "dueDate": "2024-05-14",
+      "status": "Completed",
+      "userId": 9
     }
   ]
 }

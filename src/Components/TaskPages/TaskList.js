@@ -4,6 +4,9 @@ import "./Task.css";
 import { useNavigate } from "react-router-dom";
 
 function TaskList(props) {
+
+  console.log("props",props)
+
   const [tasks, setTasks] = useState([]);
   const [selectedTask, setSelectedTask] = useState(null);
   const [showViewModal, setShowViewModal] = useState(false);
@@ -39,7 +42,10 @@ function TaskList(props) {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch("http://localhost:3002/tasks");
+        const userData = JSON.parse(localStorage.getItem("userData")); // Get user data from localStorage
+        const userId = userData.id; // Extract user ID
+  
+        const response = await fetch(`http://localhost:3002/tasks?userId=${userId}`);
         if (!response.ok) {
           throw new Error("Failed to fetch task data");
         }
@@ -49,9 +55,10 @@ function TaskList(props) {
         console.error("Error fetching task data:", error.message);
       }
     };
-
+  
     fetchTasks();
   }, []);
+  
 
   const handleView = (task) => {
     setSelectedTask(task);
@@ -152,26 +159,32 @@ function TaskList(props) {
 
   const handleAddSubmit = async () => {
     try {
+      const userData = JSON.parse(localStorage.getItem("userData")); // Get user data from localStorage
+      const userId = userData.id; 
+  
+      const taskDataWithUserId = { ...formData1, userId }; // Include userId in task data
+  
       const response = await fetch("http://localhost:3002/tasks", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData1),
+        body: JSON.stringify(taskDataWithUserId), // Send task data with userId
       });
-
+  
       if (!response.ok) {
         throw new Error("Failed to add task");
       }
-
+  
       // Update the task list after adding a new task
       const newTask = await response.json();
-      setTasks([...tasks, newTask]);
+      setTasks([newTask, ...tasks]);
       setShowAddModal(false);
     } catch (error) {
       console.error("Error adding task:", error.message);
     }
   };
+  
 
   return (
     <div>
@@ -203,7 +216,6 @@ function TaskList(props) {
           <div className="table-responsive">
             <Table striped bordered hover className="mt-4">
               <colgroup>
-                <col style={{ width: "10%" }} /> {/* Task ID */}
                 <col style={{ width: "15%" }} /> {/* Title */}
                 <col style={{ width: "30%" }} /> {/* Description */}
                 <col style={{ width: "12%" }} /> {/* Start Date */}
@@ -213,7 +225,6 @@ function TaskList(props) {
               </colgroup>
               <thead>
                 <tr>
-                  <th>ID</th>
                   <th>Title</th>
                   <th>Description</th>
                   <th>Start Date</th>
@@ -225,7 +236,6 @@ function TaskList(props) {
               <tbody>
                 {currentTasks.map((task, index) => (
                   <tr key={task.id}>
-                    <td>{task.id}</td>
                     <td>{task.title}</td>
                     <td style={{ textAlign: "justify" }}>{task.description}</td>
                     <td>{task.startDate}</td>
@@ -285,7 +295,7 @@ function TaskList(props) {
 
         <Button
           variant="primary"
-          className="mt-3 data mb-4"
+          className="mt-0 data mb-4"
           onClick={handleLogout}
         >
           <b>Log Out User</b>
@@ -382,9 +392,6 @@ function TaskList(props) {
         <Modal.Body>
           {selectedTask && (
             <div>
-              <p>
-                <strong>ID:</strong> {selectedTask.id}
-              </p>
               <p>
                 <strong>Title:</strong> {selectedTask.title}
               </p>
