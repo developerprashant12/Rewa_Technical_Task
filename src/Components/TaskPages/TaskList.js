@@ -13,6 +13,7 @@ function TaskList(props) {
     id: "",
     title: "",
     description: "",
+    startDate: "",
     dueDate: "",
     status: "",
   });
@@ -20,6 +21,7 @@ function TaskList(props) {
     id: "",
     title: "",
     description: "",
+    startDate: "",
     dueDate: "",
     status: "",
   });
@@ -37,7 +39,7 @@ function TaskList(props) {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch("https://rewainfotech.netlify.app/tasks");
+        const response = await fetch("http://localhost:3002/tasks");
         if (!response.ok) {
           throw new Error("Failed to fetch task data");
         }
@@ -73,6 +75,7 @@ function TaskList(props) {
       id: "",
       title: "",
       description: "",
+      startDate: "",
       dueDate: "",
       status: "",
     });
@@ -81,7 +84,7 @@ function TaskList(props) {
   const confirmDelete = async () => {
     try {
       const response = await fetch(
-        `https://rewainfotech.netlify.app/${selectedTask}`,
+        `http://localhost:3002/tasks/${selectedTask}`,
         {
           method: "DELETE",
         }
@@ -119,7 +122,7 @@ function TaskList(props) {
   const handleSubmit = async () => {
     try {
       const response = await fetch(
-        `https://rewainfotech.netlify.app/${selectedTask.id}`,
+        `http://localhost:3002/tasks/${selectedTask.id}`,
         {
           method: "PUT",
           headers: {
@@ -149,7 +152,7 @@ function TaskList(props) {
 
   const handleAddSubmit = async () => {
     try {
-      const response = await fetch("https://rewainfotech.netlify.app/", {
+      const response = await fetch("http://localhost:3002/tasks", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -203,15 +206,17 @@ function TaskList(props) {
                 <col style={{ width: "10%" }} /> {/* Task ID */}
                 <col style={{ width: "15%" }} /> {/* Title */}
                 <col style={{ width: "30%" }} /> {/* Description */}
+                <col style={{ width: "12%" }} /> {/* Start Date */}
                 <col style={{ width: "12%" }} /> {/* Due Date */}
                 <col style={{ width: "10%" }} /> {/* Status */}
-                <col style={{ width: "17%" }} /> {/* Actions */}
+                <col style={{ width: "20%" }} /> {/* Actions */}
               </colgroup>
               <thead>
                 <tr>
                   <th>ID</th>
                   <th>Title</th>
                   <th>Description</th>
+                  <th>Start Date</th>
                   <th>Due Date</th>
                   <th>Status</th>
                   <th>Actions</th>
@@ -223,6 +228,7 @@ function TaskList(props) {
                     <td>{task.id}</td>
                     <td>{task.title}</td>
                     <td style={{ textAlign: "justify" }}>{task.description}</td>
+                    <td>{task.startDate}</td>
                     <td>{task.dueDate}</td>
                     <td
                       style={{
@@ -312,6 +318,15 @@ function TaskList(props) {
                 onChange={handleInputChange1}
               />
             </Form.Group>
+            <Form.Group controlId="formStartDate" className="mb-3">
+              <Form.Label>Start Date</Form.Label>
+              <Form.Control
+                type="date"
+                name="startDate"
+                value={formData1.startDate}
+                onChange={handleInputChange1}
+              />
+            </Form.Group>
             <Form.Group controlId="formDueDate" className="mb-4">
               <Form.Label>Due Date</Form.Label>
               <Form.Control
@@ -377,6 +392,9 @@ function TaskList(props) {
                 <strong>Description:</strong> {selectedTask.description}
               </p>
               <p>
+                <strong>Start Date:</strong> {selectedTask.startDate}
+              </p>
+              <p>
                 <strong>Due Date:</strong> {selectedTask.dueDate}
               </p>
               <p>
@@ -430,6 +448,15 @@ function TaskList(props) {
                   onChange={handleInputChange}
                 />
               </Form.Group>
+              <Form.Group controlId="formStartDate" className="mb-3">
+                <Form.Label>Start Date</Form.Label>
+                <Form.Control
+                  type="date"
+                  name="startDate"
+                  value={formData.startDate}
+                  onChange={handleInputChange}
+                />
+              </Form.Group>
               <Form.Group controlId="formDueDate" className="mb-4">
                 <Form.Label>Due Date</Form.Label>
                 <Form.Control
@@ -469,28 +496,25 @@ function TaskList(props) {
           <Button variant="secondary" onClick={() => setShowEditModal(false)}>
             Close
           </Button>
-          {selectedTask && (
-            <Button variant="primary" onClick={handleSubmit}>
-              Save Changes
-            </Button>
-          )}
+          <Button variant="primary" onClick={handleSubmit}>
+            Update Task
+          </Button>
         </Modal.Footer>
       </Modal>
-      {/* Delete Confirmation Modal */}
+      {/* Confirmation Modal */}
       <Modal
         show={showConfirmationModal}
         onHide={() => setShowConfirmationModal(false)}
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title>Confirm Deletion</Modal.Title>
+          <Modal.Title>Confirm Delete</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Are you sure you want to delete this task?</Modal.Body>
+        <Modal.Body>
+          Are you sure you want to delete this task?
+        </Modal.Body>
         <Modal.Footer>
-          <Button
-            variant="secondary"
-            onClick={() => setShowConfirmationModal(false)}
-          >
+          <Button variant="secondary" onClick={() => setShowConfirmationModal(false)}>
             Cancel
           </Button>
           <Button variant="danger" onClick={confirmDelete}>

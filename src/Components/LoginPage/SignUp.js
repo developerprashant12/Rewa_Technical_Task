@@ -22,7 +22,7 @@ function SignUp() {
 
     try {
       // Make an HTTP POST request using fetch
-      const response = await fetch("https://rewainfotech.netlify.app/users", {
+      const response = await fetch("http://localhost:3001/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
